@@ -1,0 +1,19 @@
+resources:
+- ../../base
+namespace: sysinfo-p1
+namePrefix: prod-
+patchesStrategicMerge:
+- deployment-patch.yaml
+patches:
+- path: ingress-patch.yaml
+  target:
+    group: networking.k8s.io
+    version: v1
+    kind: Ingress
+    name: sysinfo-ingress
+configMapGenerator:
+- name: sysinfo-configmap
+  behavior: merge
+  literals:
+  - MESSAGE=Hello from production!
+  - ENV=prod

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sysinfo-deployment
+  labels:
+    app: sysinfo
+spec:
+  selector:
+    matchLabels:
+      app: sysinfo
+  template:
+    metadata:
+      labels:
+        app: sysinfo
+    spec:
+      containers:
+      - name: sysinfo
+        image: brianpursley/system-info:latest
+        ports:
+        - containerPort: 8080

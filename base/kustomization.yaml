@@ -1,0 +1,5 @@
+resources:
+- sysinfo-deployment.yaml
+- sysinfo-service.yaml
+- sysinfo-ingress.yaml
+- sysinfo-configmap.yaml

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sysinfo-service
+spec:
+  type: ClusterIP
+  selector:
+    app: sysinfo
+  ports:
+  - port: 80
+    targetPort: 8080

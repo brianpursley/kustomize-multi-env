@@ -1,0 +1,19 @@
+resources:
+- ../../base
+namespace: sysinfo-t1
+namePrefix: test-
+patchesStrategicMerge:
+- deployment-patch.yaml
+patches:
+- path: ingress-patch.yaml
+  target:
+    group: networking.k8s.io
+    version: v1
+    kind: Ingress
+    name: sysinfo-ingress
+configMapGenerator:
+- name: sysinfo-configmap
+  behavior: merge
+  literals:
+  - MESSAGE=Hello from test!
+  - ENV=test
